@@ -1,0 +1,1 @@
+web: python sum_bot.py
