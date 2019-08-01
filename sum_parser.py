@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 base_url = 'http://sum.in.ua/?swrd='
-word = 'сум'
+word = 'шевченко'
 
 def parsing(word):
     url = base_url + word
@@ -14,6 +14,7 @@ def parsing(word):
     if len(article) == 0:
         article = soup.find('div', id='search-res')
         result = article.find('p').text.replace('Можливо, стануть у пригоді: ', '').replace('Можливо, ви шукали:', '')
+        result = result.replace('Можливо, вас зацікавить:', '')
     else:
         for i in article:
             for j in i.find_all('p'):
